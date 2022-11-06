@@ -1,7 +1,7 @@
 import random
 
 def ahorcado(intento):
-    if intento == 6:
+    if intento == 5:
         print(""" 
                 -------
                 |      |
@@ -14,7 +14,7 @@ def ahorcado(intento):
             0 Intentos faltantes _X_ _X_ _X_ _X_ _X_ _X_
                     😥 PERDISTE 😥""")
 
-    elif intento == 5:
+    elif intento == 4:
         print(""" 
                 -------
                 |      |
@@ -26,7 +26,7 @@ def ahorcado(intento):
                 
             1 Intento faltante _X_ _X_ _X_ _X_ _X_ __""")
 
-    elif intento == 4:
+    elif intento == 3:
         print(""" 
                 -------
                 |      |
@@ -38,7 +38,7 @@ def ahorcado(intento):
                 
             2 Intentos faltantes _X_ _X_ _X_ _X_ __ __""")
 
-    elif intento == 3:
+    elif intento == 2:
         print(""" 
                 -------
                 |      |
@@ -50,7 +50,7 @@ def ahorcado(intento):
                 
             3 Intentos faltantes _X_ _X_ _X_ __ __ __""")
 
-    elif intento == 2:
+    elif intento == 1:
         print(""" 
                 -------
                 |      |
@@ -62,7 +62,7 @@ def ahorcado(intento):
                 
             4 Intentos faltantes _X_ _X_ __ __ __ __""")
 
-    elif intento == 1:
+    elif intento == 0:
         print(""" 
                 -------
                 |      |
@@ -76,23 +76,24 @@ def ahorcado(intento):
 
 def main():
     num_pc = random.randint(1,100)
-    num_player = int(input('<-- ADIVINA EL NÚMERO -->\nIngresa un número entre 1 y 100: '))
-    intento = 1
-
-    while num_pc != num_player and intento<6:
-        
+    num_player = 0
+    intento = 0
+    print('Bienvenido a Adivina el número')
+    while num_pc != num_player and intento<=5:
+        num_player = int(input('Ingresa un número entre 1 y 100 --> '))
         if num_player < num_pc:
             print('Ingresa un número MAYOR')
         else:
             print('Ingresa un número MENOR')
         ahorcado(intento)
-        num_player = int(input('Ingresa un número: '))
+        #num_player = int(input('Ingresa un número: '))
         intento += 1
+       #print('intento #'+str(intento))
         
+
     if num_pc == num_player:
-        print(f'Felicitaciones adivinaste el número, usaste {intento} intentos')
+        print(f'Felicitaciones adivinaste el número, usaste {intento} intento(s)')
     elif intento==6:
         print(f'El número a adivinar era {num_pc}')
 
 if __name__ == "__main__":
-    main()
