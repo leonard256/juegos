@@ -97,3 +97,4 @@ def main():
         print(f'El número a adivinar era {num_pc}')
 
 if __name__ == "__main__":
+    main()
