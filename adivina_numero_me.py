@@ -79,7 +79,7 @@ def main():
     num_player = int(input('<-- ADIVINA EL NÚMERO -->\nIngresa un número entre 1 y 100: '))
     intento = 1
 
-    while num_pc != num_player:
+    while num_pc != num_player and intento<6:
         
         if num_player < num_pc:
             print('Ingresa un número MAYOR')
@@ -89,7 +89,10 @@ def main():
         num_player = int(input('Ingresa un número: '))
         intento += 1
         
-    print(f'Felicitaciones adivinaste el número, usaste {intento} intentos')
+    if num_pc == num_player:
+        print(f'Felicitaciones adivinaste el número, usaste {intento} intentos')
+    elif intento==6:
+        print(f'El número a adivinar era {num_pc}')
 
 if __name__ == "__main__":
     main()
